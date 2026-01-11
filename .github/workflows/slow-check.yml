@@ -1,0 +1,20 @@
+name: Slow PR Check (4 min)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  slow-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Simulate long-running check (240s)
+        run: |
+          echo "Starting slow check..."
+          sleep 240
+          echo "Slow check finished."
