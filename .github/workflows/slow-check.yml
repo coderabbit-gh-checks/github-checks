@@ -16,5 +16,5 @@ jobs:
       - name: Simulate long-running check (240s)
         run: |
           echo "Starting slow check..."
-          sleep 10
+          sleep 240
           echo "Slow check finished."
