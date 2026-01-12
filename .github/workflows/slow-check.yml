@@ -7,6 +7,11 @@ jobs:
   fail-check:
     runs-on: ubuntu-latest
     steps:
+      - name: Wait 30 seconds
+        run: |
+          echo "Waiting 30 seconds before failing..."
+          sleep 30
+
       - name: Always fail
         run: |
           echo "This check fails on purpose"
