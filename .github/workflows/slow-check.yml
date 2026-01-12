@@ -1,20 +1,13 @@
-name: Slow PR Check (4 min)
+name: Fail PR Check
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
 
 jobs:
-  slow-check:
+  fail-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Simulate long-running check (240s)
+      - name: Always fail
         run: |
-          echo "Starting slow check..."
-          sleep 20
-          echo "Slow check finished."
+          echo "This check fails on purpose"
+          exit 1
